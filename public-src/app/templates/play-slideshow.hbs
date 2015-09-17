@@ -1,13 +1,15 @@
 <div class="ui column grid">
 
-    <h2> Editing {{model.name}} </h2>
+    <h2> Playing {{model.name}} </h2>
     {{#each model.links key="id" as |link|}}
-        <div> <a href="{{link.url}}"> {{link.title}} </a> </div>
+        <div>
+            <a href="{{link.url}}"> {{link.title}} </a>
+        </div>
     {{/each}}
 
-    <div class="ui left icon form">
+    <div class="ui left icon input" {{action 'addLink'}}>
         <i class="plus icon"></i>
-        {{input value=url action='addLink' on='enter'}}
+        <input placeholder="Add Link" type="text">
     </div>
 
     <div class="row"></div>
