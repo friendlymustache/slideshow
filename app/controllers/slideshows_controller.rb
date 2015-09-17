@@ -5,11 +5,11 @@ class SlideshowsController < ApplicationController
 	end
 
 	def index
-		if params[:code]
-			render json: Slideshow.where(code: params[:code]), each_serializer: SlideshowSparseSerializer
-		else
-			render json: Slideshow.where(edit_code: params[:edit_code])
-		end
+		render json: Slideshow.where(code: params[:code]), each_serializer: SlideshowSparseSerializer		
+	end
+
+	def show
+		render json: Slideshow.find_by_edit_code(params[:id])		
 	end
 
 	# def go_to_link

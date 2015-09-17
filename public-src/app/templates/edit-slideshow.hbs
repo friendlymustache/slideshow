@@ -1,6 +1,6 @@
-<h2> Editing slideshow {{model.name}} </h2>
+<h2> Editing {{model.name}} </h2>
 {{#each model.links key="id" as |link|}}
-  {{#link-to link.url}} {{link.title}}  {{/link-to}}
+  <div> <a href="{{link.url}}"> {{link.title}} </a> </div>
 {{/each}}
 
 {{outlet}}

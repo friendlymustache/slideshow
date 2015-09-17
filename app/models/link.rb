@@ -4,7 +4,9 @@ class Link < ActiveRecord::Base
 before_create :format_url
 
     def format_url
-    	self.url = 
+    	if self.url.slice(0, 4) != "http"
+    		self.url = "http://" + self.url
+    	end
     end
 
 end
