@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'landing#index'
   resources 'slideshows'
+  resources 'links'
 
   get 's/:code' => 'slideshow#go_to_link'
 

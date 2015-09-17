@@ -6,14 +6,15 @@ export default Ember.Controller.extend({
         addLink: function() {
             var new_link = this.store.createRecord('link',
                 {url: this.get('url'),
-                title: '',
+                title: this.get('title'),
                 edit_code: this.get('model.edit_code')});
-
+            this.set('url', "");
+            this.set('title', "");
             new_link.save();
         },
 
         playSlideshow: function() {
-            this.transitionTo('play', this.get('model.edit_code'));
+            this.transitionToRoute('play', this.get('model.edit_code'));
         }
     }
 

@@ -5,10 +5,19 @@
         <div> <a href="{{link.url}}"> {{link.title}} </a> </div>
     {{/each}}
 
-    <div class="ui left icon form">
-        <i class="plus icon"></i>
-        {{input value=url action='addLink' on='enter'}}
-    </div>
+    <form class="ui form" {{action 'addLink' on='submit'}}>
+        <div class="field">
+            {{input value=url placeholder="URL"}}
+        </div>
+
+        <div class="field">
+            {{input value=title placeholder="Title" action='addLink' on="enter"}}
+        </div>
+
+        <button class="ui button" type="submit">
+            Add link
+        </button>
+    </form>
 
     <div class="row"></div>
     <div class="row"></div>

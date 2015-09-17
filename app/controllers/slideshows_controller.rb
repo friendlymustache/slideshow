@@ -1,4 +1,5 @@
 class SlideshowsController < ApplicationController
+	skip_before_filter :verify_authenticity_token
 	def create
 		slideshow = Slideshow.create(slideshow_params)
 		render json: slideshow

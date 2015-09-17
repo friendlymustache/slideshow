@@ -31,7 +31,7 @@ Rails.application.configure do
   # Allow CORS for all origins in production (TODO change this!)
   config.middleware.insert_before 0, "Rack::Cors" do
       allow do
-        origins '*'
+        origins 'http://smoothlinks.herokuapp.com'
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :delete, :put, :options, :head],

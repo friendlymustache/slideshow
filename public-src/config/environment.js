@@ -29,6 +29,11 @@ module.exports = function(environment) {
     
   };
 
+  ENV['simple-auth'] = {
+    store: 'simple-auth-session-store:local-storage',
+  }  
+
+
   if (environment === 'development') {
     ENV.host = "http://localhost:3000"
     // ENV.APP.LOG_RESOLVER = true;
@@ -51,7 +56,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.host = "http://smoothlinks.herokuapp.com"
   }
 
   return ENV;
