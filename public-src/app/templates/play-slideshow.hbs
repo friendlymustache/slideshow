@@ -1,0 +1,13 @@
+<div class="ui column grid">
+
+    <h2> Playing {{model.name}} </h2>
+    {{#each model.links key="id" as |link|}}
+        <div>
+            <a href="{{link.url}}"> {{link.title}} </a>
+        </div>
+    {{/each}}
+
+</div>
+
+{{outlet}}
+
