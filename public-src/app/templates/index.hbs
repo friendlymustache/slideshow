@@ -8,9 +8,9 @@
 		</div>
 	  </div>
 
-	  <form class="ui form" {{action 'makeSlideShow' on="enter"}} >
+	  <form class="ui form" >
 		  <div class="field">
-		  	{{input value=title placeholder="Title"}}
+		  	{{input value=title placeholder="Title" enter='makeSlideShow'}}
 		  </div>
 		  <div class="field">
 		  	<button class="ui fluid blue button" {{action 'makeSlideshow'}}>
