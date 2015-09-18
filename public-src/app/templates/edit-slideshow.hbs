@@ -3,6 +3,7 @@
     <h2> Editing {{model.name}} </h2>
     {{#each model.links key="id" as |link|}}
         <div> <a href="{{link.url}}"> {{link.title}} </a> </div>
+        <a {{action "deleteLink" link}} > <i class="red link x icon"/> </a>
     {{/each}}
 
     <form class="ui form" {{action 'addLink' on='submit'}}>

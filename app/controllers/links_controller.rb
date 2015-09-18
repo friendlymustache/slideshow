@@ -11,6 +11,17 @@ class LinksController < ApplicationController
 		render json: link
 	end
 
+	def destroy
+		authenticate_with_http_token do |token, options|
+			slideshow = Slideshow.find_by_edit_code(token)					
+			link = Link.find(params[:id])
+			if link.slideshow == slideshow
+				link.destroy
+			end
+			render json: link
+		end
+	end
+
 private
 	def link_params
 		params.require(:link).permit(:url, :title, :edit_code, :slideshow_id)

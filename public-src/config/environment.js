@@ -30,12 +30,15 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
+    authorizer: 'authorizer:slideshow-app-authorizer',    
     store: 'simple-auth-session-store:local-storage',
   }  
 
 
   if (environment === 'development') {
     ENV.host = "http://localhost:3000"
+    ENV['simple-auth']['crossOriginWhitelist'] = ['http://localhost:3000'];    
+
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -57,6 +60,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.host = "http://smoothlinks.herokuapp.com"
+    ENV['simple-auth']['crossOriginWhitelist'] = ['http://smoothlinks.herokuapp.com']      
   }
 
   return ENV;
