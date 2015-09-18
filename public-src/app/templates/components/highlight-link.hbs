@@ -1,0 +1,11 @@
+{{#if isCurrentLink}}
+    <div>
+        <a href="{{link.url}}" style="color: #FF0000"> {{link.title}} </a>
+    </div>
+{{else}}
+    <div>
+        <a href="{{link.url}}"> {{link.title}} </a>
+    </div>
+{{/if}}
+
+{{yield}}
