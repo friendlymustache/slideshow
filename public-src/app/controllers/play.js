@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
     		var links = this.get('model.links');
     		var curr_idx = links.indexOf(curr_link);
     		if (curr_idx > 0) {
-    			model.set('link', links.objectAt(curr_idx) - 1);
+    			model.set('link', links.objectAt(curr_idx - 1));
     			model.save();
     		}
 
@@ -21,10 +21,17 @@ export default Ember.Controller.extend({
     		var links = this.get('model.links');
     		var curr_idx = links.indexOf(curr_link);
     		if (curr_idx < links.get('length') - 1) {
-    			model.set('link', links.objectAt(curr_idx) + 1);
+    			model.set('link', links.objectAt(curr_idx + 1));
     			model.save();
     		}
     	}
+
+        pickLink : function(link) {
+            var model = this.get('model');
+
+            model.set('link', link);
+            model.save();
+        }
     }
 
 });
