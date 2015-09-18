@@ -3,7 +3,7 @@
   	  	<div class="ui header">My Slideshows</div>
   	  	<div class="link list">
 		  {{#each session.secure.slideshows as |slideshow|}}
-		  	<div class="item"> {{#link-to 'edit-slideshow' slideshow}} {{slideshow.name}} {{/link-to}} </div>
+		  	<div class="item"> {{#link-to 'edit-slideshow' slideshow.edit_code}} {{slideshow.name}} {{/link-to}} </div>
 		  {{/each}}
 		</div>
 	  </div>

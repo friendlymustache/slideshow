@@ -9,6 +9,10 @@ class SlideshowsController < ApplicationController
 		render json: Slideshow.where(code: params[:code]), each_serializer: SlideshowSparseSerializer		
 	end
 
+	def update
+		render json: {}
+	end
+
 	def show
 		slideshow = Slideshow.find_by_edit_code(params[:id])		
 		first_link = slideshow.links.first

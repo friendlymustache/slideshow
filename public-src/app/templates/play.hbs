@@ -1,14 +1,16 @@
-<div class="ui column grid">
-
+    {{#link-to 'edit-slideshow' model.edit_code}} <i class="edit icon"/> Edit {{/link-to}}
+    <div class="ui center aligned segment">
     <h2> Playing {{model.name}} </h2>
-    <div class="ui horizontal list">
-	    {{#each model.links key="id" as |link|}}
-	        {{highlight-link slideshow=model link=link}}
-	    {{/each}}
+    	<div class="ui segment">
+		    <div class="ui horizontal list">
+		    	<div class="item" {{action "previousLink" }}>  <i class="left link arrow icon"/> </div>
+			    {{#each model.links key="id" as |link|}}
+			        {{highlight-link slideshow=model link=link action="pickLink"}}
+			    {{/each}}
+		    	<div class="item" {{action "nextLink" }}> <i class="right link arrow icon"/> </div>
+		    </div>
+	    </div>
     </div>
 
-    {{#link-to 'edit-slideshow' model.edit_code}} Edit {{/link-to}}
 
-</div>
 
-{{outlet}}
