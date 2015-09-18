@@ -10,7 +10,13 @@ class SlideshowsController < ApplicationController
 	end
 
 	def show
-		render json: Slideshow.find_by_edit_code(params[:id])		
+		slideshow = Slideshow.find_by_edit_code(params[:id])		
+		first_link = slideshow.links.first
+		if first_link
+			slideshow.link_id = first_link.id
+			slideshow.save
+		end
+		render json: slideshow
 	end
 
 	# def go_to_link

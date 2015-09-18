@@ -1,9 +1,11 @@
 <div class="ui column grid">
 
     <h2> Playing {{model.name}} </h2>
-    {{#each model.links key="id" as |link|}}
-        {{highlight-link slideshow=model link=link}}
-    {{/each}}
+    <div class="ui horizontal list">
+	    {{#each model.links key="id" as |link|}}
+	        {{highlight-link slideshow=model link=link}}
+	    {{/each}}
+    </div>
 
     {{#link-to 'edit-slideshow' model.edit_code}} Edit {{/link-to}}
 

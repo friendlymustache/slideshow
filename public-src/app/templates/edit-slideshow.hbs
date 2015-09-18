@@ -1,10 +1,10 @@
-<div class="ui column grid">
 
-    <h2> Editing {{model.name}} </h2>
-    {{#each model.links key="id" as |link|}}
-        <div> <a href="{{link.url}}"> {{link.title}} </a> </div>
-        <a {{action "deleteLink" link}} > <i class="red link x icon"/> </a>
-    {{/each}}
+
+    <div class="ui header"> Editing {{model.name}} 
+        <div class="sub header"> Add links to your slideshow </div>
+    </div>
+
+
 
     <form class="ui form" {{action 'addLink' on='submit'}}>
         <div class="field">
@@ -20,16 +20,31 @@
         </button>
     </form>
 
-    <div class="row"></div>
-    <div class="row"></div>
+    <div class="ui center aligned segment">
+        <div class="ui header"> Links </div>
 
-    <button class="ui button" {{action 'playSlideshow'}}>
-        <p style="font-size:200%">
-            Play slideshow!
-        </p>
-    </button>
+        {{#if model.links}}        
+            <div class="ui list">    
+            {{#each model.links key="id" as |link|}}
+                <div class="item">
+                    <a {{action "deleteLink" link}} > <i class="black link x icon"/> </a>            
+                    <a href="{{link.url}}"> {{link.title}} </a>
+                </div>
+            {{/each}}
+            </div>
+            <div class="ui huge blue button" {{action 'playSlideshow'}}>
+                    Play slideshow!
+            </div>            
 
-</div>
+        {{else}}
+            Add links to build a slideshow
+        {{/if}}
+
+
+    </div>
+
+
+
 
 {{outlet}}
 
