@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 
   isCurrentLink: function() {
     return this.get('slideshow.link.id') == this.get('link.id');
-  }.property('slideshow', 'link')
+  }.property('slideshow', 'link'),
 
   actions : {
     chooseLink : function(link) {

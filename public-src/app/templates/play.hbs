@@ -12,5 +12,22 @@
 	    </div>
     </div>
 
+    <div class="ui header"> Shareable Link: <a href="{{current_url}}"> {{current_url}} </a> </div>
 
+    {{#unless edit_successful}}
+        <div class="ui error message"> Oops! That URL is already taken </div>
+    {{/unless}}
+
+    <form class="ui form" {{action 'changeViewURL' on='submit'}}>
+        <div class="field {{unless edit_successful 'error'}} ">
+            <div class="ui labeled input">
+                <div class="ui label"> {{base_url}} </div>
+                {{input value=new_code placeholder="Enter a custom URL"}}
+            </div>
+        </div>
+
+        <button class="ui button" type="submit">
+            Change link
+        </button>
+    </form>    
 

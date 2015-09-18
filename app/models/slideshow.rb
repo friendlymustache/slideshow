@@ -2,6 +2,9 @@ class Slideshow < ActiveRecord::Base
 	has_many :links
 	belongs_to :link
 
+	validates :code, :uniqueness => true
+	validates :edit_code, :uniqueness => true
+
 before_create :generate_codes
 
   def generate_codes

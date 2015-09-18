@@ -25,7 +25,7 @@ export default Ember.Controller.extend({
 
         playSlideshow: function() {
             this.transitionToRoute('play', this.get('model.edit_code'));
-        }
+        },
     }
 
 });

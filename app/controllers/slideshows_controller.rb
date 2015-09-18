@@ -10,7 +10,14 @@ class SlideshowsController < ApplicationController
 	end
 
 	def update
-		render json: {}
+		authenticate_with_http_token do |token, options|
+			slideshow = Slideshow.find_by_edit_code(token)					
+			if slideshow.update_attributes(slideshow_params)
+				render json: slideshow
+			else
+				render json: 'Slideshow title taken', status: 422 and return
+			end
+		end
 	end
 
 	def show
